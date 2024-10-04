@@ -1,0 +1,10 @@
+insert into genres (name) values ('Комедия');
+insert into genres (name) values ('Приключение');
+insert into genres (name) values ('Боевик');
+insert into genres (name) values ('Мультфильм');
+insert into genres (name) values ('Историческое');
+insert into genres (name) values ('Драма');
+insert into genres (name) values ('Фэнтези');
+insert into genres (name) values ('Фантастика');
+insert into genres (name) values ('Семейное');
+insert into genres (name) values ('Детектив');
