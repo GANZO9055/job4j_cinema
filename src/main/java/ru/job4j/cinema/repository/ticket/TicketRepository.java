@@ -6,4 +6,6 @@ import java.util.Optional;
 
 public interface TicketRepository {
     Optional<Ticket> finaById(int id);
+
+    Optional<Ticket> buyTicket(Ticket ticket);
 }
