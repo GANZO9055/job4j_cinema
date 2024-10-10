@@ -2,11 +2,13 @@ package ru.job4j.cinema.repository.ticket;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import ru.job4j.cinema.model.Ticket;
 
 import java.util.Optional;
 
+@Repository
 public class Sql2oTicketRepository implements TicketRepository {
 
     private final Sql2o sql2o;
@@ -17,7 +19,7 @@ public class Sql2oTicketRepository implements TicketRepository {
     }
 
     @Override
-    public Optional<Ticket> finaById(int id) {
+    public Optional<Ticket> findById(int id) {
         try (var connection = sql2o.open()) {
             var query = connection.createQuery("SELECT * FROM tickets WHERE id = :id");
             query.addParameter("id", id);

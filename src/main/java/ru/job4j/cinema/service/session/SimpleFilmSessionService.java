@@ -1,8 +1,8 @@
-package ru.job4j.cinema.service;
+package ru.job4j.cinema.service.session;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.cinema.model.FilmSession;
-import ru.job4j.cinema.repository.FilmSessionRepository;
+import ru.job4j.cinema.repository.session.FilmSessionRepository;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -12,8 +12,8 @@ public class SimpleFilmSessionService implements FilmSessionService {
 
     private FilmSessionRepository filmSessionRepository;
 
-    public SimpleFilmSessionService(FilmSessionRepository sql2oFilmSessionRepository) {
-        this.filmSessionRepository = sql2oFilmSessionRepository;
+    public SimpleFilmSessionService(FilmSessionRepository filmSessionRepository) {
+        this.filmSessionRepository = filmSessionRepository;
     }
 
     @Override
