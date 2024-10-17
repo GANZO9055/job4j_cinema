@@ -2,11 +2,13 @@ package ru.job4j.cinema.repository.user;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import ru.job4j.cinema.model.User;
 
 import java.util.Optional;
 
+@Repository
 public class Sql2oUserRepository implements UserRepository {
 
     private final Sql2o sql2o;

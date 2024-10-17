@@ -29,7 +29,7 @@ public class SimpleFileService implements FileService {
         return Optional.of(new FileDto(file.get().getName(), content));
     }
 
-    public byte[] readFile(String path) {
+    private byte[] readFile(String path) {
         try {
             return Files.readAllBytes(Path.of(path));
         } catch (IOException e) {

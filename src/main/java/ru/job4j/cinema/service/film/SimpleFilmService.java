@@ -1,5 +1,6 @@
 package ru.job4j.cinema.service.film;
 
+import org.springframework.stereotype.Service;
 import ru.job4j.cinema.dto.FilmDto;
 import ru.job4j.cinema.model.Film;
 import ru.job4j.cinema.repository.film.FilmRepository;
@@ -9,6 +10,7 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Service
 public class SimpleFilmService implements FilmService {
 
     private final FilmRepository filmRepository;

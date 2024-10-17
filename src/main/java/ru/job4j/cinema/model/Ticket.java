@@ -75,12 +75,11 @@ public class Ticket {
             return false;
         }
         Ticket ticket = (Ticket) object;
-        return id == ticket.id
-                && userId == ticket.userId;
+        return id == ticket.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userId);
+        return Objects.hash(id);
     }
 }

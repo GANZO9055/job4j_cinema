@@ -36,11 +36,11 @@ public class Genre {
             return false;
         }
         Genre genre = (Genre) object;
-        return id == genre.id && Objects.equals(name, genre.name);
+        return id == genre.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id);
     }
 }

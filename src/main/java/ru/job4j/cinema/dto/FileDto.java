@@ -10,9 +10,6 @@ public class FileDto {
         this.content = content;
     }
 
-    public FileDto() {
-    }
-
     public String getName() {
         return name;
     }

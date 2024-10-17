@@ -4,6 +4,7 @@ import ru.job4j.cinema.model.FilmSession;
 import ru.job4j.cinema.model.Hall;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class FilmSessionDto {
 
@@ -72,5 +73,22 @@ public class FilmSessionDto {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        FilmSessionDto that = (FilmSessionDto) object;
+        return id == that.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

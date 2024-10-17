@@ -1,5 +1,7 @@
 package ru.job4j.cinema.dto;
 
+import java.util.Objects;
+
 public class FilmDto {
 
     private int id;
@@ -21,9 +23,6 @@ public class FilmDto {
         this.durationInMinutes = durationInMinutes;
         this.genre = genre;
         this.file = file;
-    }
-
-    public FilmDto() {
     }
 
     public int getId() {
@@ -88,5 +87,22 @@ public class FilmDto {
 
     public void setFile(int file) {
         this.file = file;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
+        FilmDto filmDto = (FilmDto) object;
+        return id == filmDto.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

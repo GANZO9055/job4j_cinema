@@ -9,7 +9,7 @@ public class FilmSession {
     public static final Map<String, String> COLUMN_MAPPING = Map.of(
             "id", "id",
             "film_id", "filmId",
-            "hall_id", "hallId",
+            "halls_id", "hallId",
             "start_time", "startTime",
             "end_time", "endTime",
             "price", "price"
