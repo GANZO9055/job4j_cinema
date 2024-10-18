@@ -17,9 +17,9 @@
     <header th:insert="blocks/header :: header"></header>
     <div class="container mt-2 mb-2">
         <div class="row" th:each="filmSession : ${filmSessions}">
-            <!--<div class="col text-center m-1">
-                <img th:src="@{/files/{fileId}(fileId=*{film.fileId})}" alt="Image">
-            </div>-->
+            <div class="col text-center m-1">
+                <img th:src="@{/files/{file}(file=*{filmSession.film.file})}" alt="Image">
+            </div>
             <div class="col m-1">
                 <ul>
                     <li><div th:text="'Название: ' + ${filmSession.film.name}"/></li>
@@ -28,6 +28,7 @@
                     <li><div th:text="'Конец: ' + ${filmSession.endTime}"/></li>
                     <li><div th:text="'Стоимость билета: ' + ${filmSession.price}"/></li>
                 </ul>
+                <a class="btn btn-success w-50" th:href="@{/sessions/{id}(id=${filmSession.id})}">Купить билет</a>
             </div>
             <hr class="col-12" />
         </div>
