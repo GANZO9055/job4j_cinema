@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.job4j.cinema.model.User;
 import ru.job4j.cinema.service.user.UserService;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/users")
 public class UserController {
@@ -23,7 +25,7 @@ public class UserController {
             model.addAttribute("message", "Пользователь с такой почтой уже существует");
             return "errors/404";
         }
-        return "redirect:/sessions";
+        return "redirect:/films";
     }
 
     @GetMapping("/register")
@@ -44,5 +46,11 @@ public class UserController {
             return "users/login";
         }
         return "redirect:/films";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/users/login";
     }
 }
