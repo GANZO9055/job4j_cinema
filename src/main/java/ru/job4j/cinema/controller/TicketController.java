@@ -18,12 +18,12 @@ public class TicketController {
         this.ticketService = ticketService;
     }
 
-    @PostMapping
+    @PostMapping("/buy")
     public String buyTicket(@ModelAttribute Ticket ticket, Model model) {
         var result = ticketService.buyTicket(ticket);
         if (result.isEmpty()) {
             model.addAttribute("message", "Ошибка! Возможно, билет уже куплен на заданное место. Попробуйте выбрать другое место.");
-            return "errors/404";
+            return "tickets/failure";
         }
         model.addAttribute("message",
                 String.format("Билет успешно приобретен на место (ряд, место) с номерами: %d, %d",
@@ -31,6 +31,6 @@ public class TicketController {
                         ticket.getPlaceNumber()
                 )
         );
-        return "tickets/buy";
+        return "tickets/success";
     }
 }

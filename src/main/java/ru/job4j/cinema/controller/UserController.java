@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.job4j.cinema.model.User;
 import ru.job4j.cinema.service.user.UserService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -19,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(Model model, @PathVariable User user) {
+    public String register(Model model, @ModelAttribute User user) {
         var result = userService.save(user);
         if (result.isEmpty()) {
             model.addAttribute("message", "Пользователь с такой почтой уже существует");
@@ -39,12 +40,14 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String loginUser(Model model, @ModelAttribute User user) {
+    public String loginUser(Model model, @ModelAttribute User user, HttpServletRequest request) {
         var userOptional = userService.findByEmailAndPassword(user.getEmail(), user.getPassword());
         if (userOptional.isEmpty()) {
             model.addAttribute("error", "Почта или пароль введены неверно");
             return "users/login";
         }
+        var session = request.getSession();
+        session.setAttribute("user", userOptional.get());
         return "redirect:/films";
     }
 

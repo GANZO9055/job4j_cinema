@@ -34,7 +34,7 @@ public class Sql2oTicketRepository implements TicketRepository {
         try (var connection = sql2o.open()) {
             var sql = """
                       INSERT INTO tickets(session_id, row_number, place_number, user_id)
-                      VALUES (:session_id, :row_number, :place_number, user_id)
+                      VALUES (:session_id, :row_number, :place_number, :user_id)
                       """;
             var query = connection.createQuery(sql, true)
                     .addParameter("session_id", ticket.getSessionId())
@@ -45,7 +45,7 @@ public class Sql2oTicketRepository implements TicketRepository {
             ticket.setId(generatedId);
             return Optional.of(ticket);
         } catch (Exception e) {
-            logger.error("Данный билет уже куплен!");
+            logger.error(e.getMessage());
             return Optional.empty();
         }
     }
