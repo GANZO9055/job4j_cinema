@@ -7,11 +7,11 @@ import ru.job4j.cinema.model.File;
 import java.util.Optional;
 
 @Repository
-public class Sql2oFIleRepository implements FileRepository {
+public class Sql2oFileRepository implements FileRepository {
 
     private final Sql2o sql2o;
 
-    public Sql2oFIleRepository(Sql2o sql2o) {
+    public Sql2oFileRepository(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
 
