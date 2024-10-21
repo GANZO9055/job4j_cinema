@@ -24,7 +24,7 @@ public class UserController {
         var result = userService.save(user);
         if (result.isEmpty()) {
             model.addAttribute("message", "Пользователь с такой почтой уже существует");
-            return "errors/404";
+            return "users/register";
         }
         return "redirect:/films";
     }

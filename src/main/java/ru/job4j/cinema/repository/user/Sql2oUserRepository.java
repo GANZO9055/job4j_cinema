@@ -47,8 +47,8 @@ public class Sql2oUserRepository implements UserRepository {
             user.setId(generatedId);
             return Optional.of(user);
         } catch (Exception e) {
-            logger.error("Данный пользователь уже существует!");
-            return Optional.empty();
+            logger.error(e.getMessage(), e);
         }
+        return Optional.empty();
     }
 }

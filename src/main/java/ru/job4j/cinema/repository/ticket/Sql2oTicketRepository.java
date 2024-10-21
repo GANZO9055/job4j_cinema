@@ -45,8 +45,8 @@ public class Sql2oTicketRepository implements TicketRepository {
             ticket.setId(generatedId);
             return Optional.of(ticket);
         } catch (Exception e) {
-            logger.error(e.getMessage());
-            return Optional.empty();
+            logger.error(e.getMessage(), e);
         }
+        return Optional.empty();
     }
 }

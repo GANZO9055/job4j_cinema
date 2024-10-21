@@ -47,6 +47,28 @@ mvn spring-boot:run
 
 После запуска, проект будет доступен по адресу: [http://localhost:8080](http://localhost:8080)
 
+Взаимодействие с приложением:
+
+1. Главная
+
+![Главная](image/main.png)
+
+2. Кинотека
+
+![Кинотека](image/films.png)
+
+3. Покупка билета на фильм 
+
+![Покупка билета на фильм](image/buy_ticket.png)
+
+4. Вход
+
+![Вход](image/input.png)
+
+5. Регистрация
+
+![Регистрация](image/register.png)
+
 ## Контакты
 
 Telegram: [Konstantin](@konstantin9055)
